@@ -26,11 +26,11 @@ public class TestSeance2 {
         System.out.println("Commencer à jouer ? (Y/N)");
         Scanner sc2 =  new Scanner(System.in);
         String veutjouer = sc2.nextLine();
-        while (!(veutjouer.equals('y')) || !(veutjouer.equals('n'))){
+        while (!(veutjouer.equals("y")) && !(veutjouer.equals("n"))){
             System.out.println("Rentrez une réponse valide ! y pour jouer, n pour ne pas jouer");
             veutjouer = sc2.nextLine();
         }
-        while (veutjouer.equals('y')){
+        while (veutjouer.equals("y")){
             sekai.tourDuJeu(player1);
             System.out.println("Continuer à jouer ? (y/n)");
             veutjouer = sc2.nextLine();
