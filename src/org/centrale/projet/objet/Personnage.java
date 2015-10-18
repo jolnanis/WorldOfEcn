@@ -140,7 +140,7 @@ public abstract class Personnage extends Creature {
             case 0 :
                 int k = this.pourcentageAtt;
                 System.out.println("Votre pourcentage d'attaque était :" + k);
-                this.pourcentageAtt = n.bonusmalus ;
+                this.pourcentageAtt = k + n.bonusmalus ;
                 this.stock.add(n);
                 if (k < this.pourcentageAtt){
                     System.out.println("Bien joué, c'était un gâteau au chocolat. Votre pourcentage attaque est maintenant" + this.pourcentageAtt + " pendant 10 tours");
@@ -152,7 +152,7 @@ public abstract class Personnage extends Creature {
             case 1 :
                 int l = this.pourcentagePar;
                 System.out.println("Votre pourcentage de parade était :" + l);
-                this.pourcentagePar = n.bonusmalus ;
+                this.pourcentagePar = l + n.bonusmalus ;
                 this.stock.add(n);
                 if (l < this.pourcentagePar){
                     System.out.println("Bien joué, c'était un gâteau au chocolat. Votre pourcentage parade est maintenant" + this.pourcentagePar + " pendant 10 tours");
@@ -164,7 +164,7 @@ public abstract class Personnage extends Creature {
             case 2 :
                 int m = this.degAtt;
                 System.out.println("Votre attaque était :" + m);
-                this.degAtt = n.bonusmalus ;
+                this.degAtt = m + n.bonusmalus ;
                 this.stock.add(n);
                 if (m < this.degAtt){
                     System.out.println("Bien joué, c'était un gâteau au chocolat. Votre attaque est maintenant" + this.degAtt + " pendant 10 tours");
@@ -176,7 +176,7 @@ public abstract class Personnage extends Creature {
             case 3 :
                 int o = this.distAttMax;
                 System.out.println("Votre pourcentage de parade était :" + o);
-                this.distAttMax = n.bonusmalus ;
+                this.distAttMax = o + n.bonusmalus ;
                 this.stock.add(n);
                 if (o < this.distAttMax){
                     System.out.println("Bien joué, c'était un gâteau au chocolat. Votre distance maximale d'attaque est maintenant" + this.distAttMax + " pendant 10 tours");
