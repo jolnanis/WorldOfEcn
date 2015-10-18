@@ -89,7 +89,7 @@ public class Archer extends Personnage {
     public void combattre (Creature c){
         Random rng = new Random();
         int jetDe = rng.nextInt(99)+1;
-        if (this.nbFleches > 0 && this.getPos().distance(c.getPos())>1 && this.getPos().distance(c.getPos())<this.getDistAttMax()){
+        if (this.nbFleches > 0){
             this.nbFleches --;
                 if (jetDe<=this.pourcentageAtt)
                 c.setPtVie(this.degAtt);

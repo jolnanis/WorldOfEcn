@@ -123,7 +123,7 @@ public class Mage extends Personnage implements Combattant {
         Random rng = new Random();
         int jetDe = rng.nextInt(99)+1;
         this.ptMana --;
-        if (this.getPos().distance(c.getPos())>1 && this.getPos().distance(c.getPos())<this.getDistAttMax()&&jetDe<=this.pourcentageMag)
+        if (jetDe<=this.pourcentageMag)
             c.setPtVie(this.degMag);
         
         

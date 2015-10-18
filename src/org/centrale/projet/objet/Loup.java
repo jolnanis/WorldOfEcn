@@ -66,14 +66,13 @@ public class Loup extends Monster implements Combattant {
         Random rng = new Random();
         int jetDe1 = rng.nextInt(99)+1;
         int jetDe2 = rng.nextInt(99)+1;
-        if (this.getPos().distance(c.getPos())==1){
-            if (jetDe1 <= this.pourcentageAtt){
-                if (jetDe2 <= c.pourcentagePar)
-                    c.setPtVie(this.degAtt-c.getPourcentagePar());
-                else
-                    c.setPtVie(this.degAtt);
-                }
-        }
+        if (jetDe1 <= this.pourcentageAtt){
+            if (jetDe2 <= c.pourcentagePar)
+                c.setPtVie(this.degAtt-c.getPourcentagePar());
+            else
+                c.setPtVie(this.degAtt);
+            }
+        
     }
     
 }
