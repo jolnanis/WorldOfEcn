@@ -11,6 +11,9 @@ package org.centrale.projet.objet;
 public class Soin extends Potion {
     int pV;
 
+    /**
+     *
+     */
     public Soin() {
         super();
         pV=15;

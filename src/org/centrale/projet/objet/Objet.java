@@ -9,6 +9,10 @@ package org.centrale.projet.objet;
  * @author nico
  */
 public class Objet extends ElementDuJeu {
+
+    /**
+     *
+     */
     public Objet(){
         super();
     }

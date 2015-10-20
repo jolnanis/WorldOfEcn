@@ -7,7 +7,7 @@ package org.centrale.projet.objet;
  */
 
 /**
- *
+ * Classe mignonne.
  * @author ADMIN
  */
 public class Lapin extends Monster {

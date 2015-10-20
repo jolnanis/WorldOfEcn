@@ -2,7 +2,6 @@ package org.centrale.projet.objet;
 
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.Scanner;
 
 
 /*
@@ -20,7 +19,15 @@ public abstract class Personnage extends Creature {
 
     private int pourcentageResistMag ;
     private int distAttMax ;
+
+    /**
+     * Nom du personnage.
+     */
     protected String nom ;
+
+    /**
+     * Stock de nourriture apportant des bonus/malus.
+     */
     protected LinkedList<Nourriture> stock;
     //Constructeurs
 
@@ -78,18 +85,34 @@ public abstract class Personnage extends Creature {
         return pourcentageResistMag;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     *
+     * @param nom
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     *
+     * @return
+     */
     public LinkedList<Nourriture> getStock() {
         return stock;
     }
 
+    /**
+     *
+     * @param stock
+     */
     public void setStock(LinkedList<Nourriture> stock) {
         this.stock = stock;
     }
@@ -125,6 +148,11 @@ public abstract class Personnage extends Creature {
         this.distAttMax = distAttMax;
     }
 
+    /**
+     * Boire une potion p donnée en argument.
+     * (Attribue les effets au personnage et détruit la potion)
+     * @param p
+     */
     public void boire(Potion p){
         if (p instanceof Soin){
             this.ptVie = this.ptVie + ((Soin)p).pV;  
@@ -136,7 +164,10 @@ public abstract class Personnage extends Creature {
         }
     }
     
-    
+    /**
+     * Manger de la nourriture (fonctionnement similaire à Boire(Potion p))
+     * @param n
+     */
     public void manger(Nourriture n){
         Random generateurAleatoire = new Random();
         int carac = generateurAleatoire.nextInt(3);
@@ -192,7 +223,12 @@ public abstract class Personnage extends Creature {
         }
     }
     
-    
+    /**
+     * Cherche les créatures à une distance n du personnage et renvoie une liste.
+     * (Distance définie par la norme 1)
+     * @param n
+     * @return
+     */
     public LinkedList<Creature>  chercherAttaquables(int n){
     LinkedList attaquables = new LinkedList<Creature>();
     int x = this.getPos().getX();
@@ -207,6 +243,10 @@ public abstract class Personnage extends Creature {
     attaquables.remove(Personnage.map[x][y]);
     return attaquables;
     }
+
+    /**
+     * Affiche en fait toute la carte du jeu avec des lettres pour représenter les elements.
+     */
     public void afficherEnvirons(){
         int N = 12;
         this.pos.affiche();
@@ -220,6 +260,20 @@ public abstract class Personnage extends Creature {
             System.out.println();
         }
     }
+
+    /**
+     * Print le contenu de la case avec le code suivant :
+     * Y pour le personnage (You)
+     * P pour Paysan
+     * L pour Lapin
+     * L pour Loup (aussi)
+     * A pour Archer
+     * G pour Guerrier
+     * M pour Mage
+     * O pour les Objets (Nourriture ou Potion)
+     * @param i
+     * @param j
+     */
     public void afficherCase(int i, int j){
         ElementDuJeu contenuCase = Personnage.map[i][j];
         if (contenuCase == null){
@@ -255,7 +309,10 @@ public abstract class Personnage extends Creature {
         
     }
 
-    
+    /**
+     * Recherche les créatures pouvant attaquer le personnage et renvoie une liste.
+     * @return
+     */
     public LinkedList<Creature> chercherPeutAttaquer(){
         LinkedList peutAttaquer = new LinkedList<Creature>();
         int x = this.getPos().getX();

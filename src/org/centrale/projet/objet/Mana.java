@@ -11,6 +11,9 @@ package org.centrale.projet.objet;
 public class Mana extends Potion {
     int ptMana;
 
+    /**
+     * Constructeur sans argument de la potion de mana.
+     */
     public Mana() {
         super();
         this.ptMana = 14;

@@ -46,6 +46,8 @@ public class Mage extends Personnage implements Combattant {
      * @param ptPar
      * @param distAttMax
      * @param pos
+     * @param nom
+     * @param stock
      */
 
     public Mage(int ptMana, int degMag, int pourcentageMag, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int ptPar, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {

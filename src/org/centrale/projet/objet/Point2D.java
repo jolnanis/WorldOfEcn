@@ -14,7 +14,7 @@ public class Point2D {
      */
     private int x;
     /**
-     * Ordonnée
+     * Ordonnée.
      */
     private int y;
     /**

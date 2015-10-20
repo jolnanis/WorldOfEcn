@@ -5,11 +5,15 @@
 package org.centrale.projet.objet;
 
 /**
- *
+ * Test des exceptions.
  * @author nico
  */
 public class Chaos {
     
+    /**
+     *
+     * @param args
+     */
     public static void main (String[] args){
         ElementDuJeu.map = new ElementDuJeu[50][50];
         World sekai = new World();

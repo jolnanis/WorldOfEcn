@@ -5,9 +5,13 @@
 package org.centrale.projet.objet;
 
 /**
- *
+ * Interface commune à toutes les créatures qui doivent pouvoir combattre
  * @author nico
  */
 public interface Deplacable {
+
+    /**
+     *
+     */
     public abstract void deplace();
 }
