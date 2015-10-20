@@ -207,6 +207,49 @@ public abstract class Personnage extends Creature {
     attaquables.remove(Personnage.map[x][y]);
     return attaquables;
     }
+    public void afficherEnvirons(){
+        int N = 12;
+        int x = this.getPos().getX();
+        int y = this.getPos().getY();
+        for (int i = Math.max(0, x - N); i <= Math.min(x + N, 50); i++) {
+            for (int j = Math.max(0, x - N); j <= Math.min(x + N, 50); j++) {
+                this.afficherCase(i, j);
+            }
+            System.out.println();
+        }
+    }
+    public void afficherCase(int i, int j){
+        ElementDuJeu contenuCase = Personnage.map[i][j];
+        if (contenuCase == null){
+            System.out.print(". ");
+        }
+        else if (contenuCase.equals(this)){
+            System.out.print("Y ");
+        }
+        else if (contenuCase instanceof Loup){
+            System.out.print("L ");
+        }
+        else if (contenuCase instanceof Archer){
+            System.out.print("A ");
+        }
+        else if (contenuCase instanceof Guerrier){
+            System.out.print("G ");
+        }
+        else if (contenuCase instanceof Mage){
+            System.out.print("M ");
+        }
+        else if (contenuCase instanceof Objet){
+            System.out.print("O ");
+        }
+        else if (contenuCase instanceof Lapin){
+            System.out.print("L ");
+        }
+        else {
+            System.out.print("* ");
+        }
+        
+    }
+
     
     public LinkedList<Creature> chercherPeutAttaquer(){
         LinkedList peutAttaquer = new LinkedList<Creature>();
