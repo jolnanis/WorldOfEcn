@@ -208,8 +208,10 @@ public abstract class Personnage extends Creature {
     }
     public void afficherEnvirons(){
         int N = 12;
+        this.pos.affiche();
         int x = this.getPos().getX();
         int y = this.getPos().getY();
+        System.out.println(x+" "+y);
         for (int i = Math.max(0, x - N); i <= Math.min(x + N, 50); i++) {
             for (int j = Math.max(0, x - N); j <= Math.min(x + N, 50); j++) {
                 this.afficherCase(i, j);
