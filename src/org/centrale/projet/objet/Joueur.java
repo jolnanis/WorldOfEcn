@@ -192,7 +192,7 @@ public class Joueur {
         Scanner sc3 =  new Scanner(System.in);
         String scanner;
         for (Object a : attaquables){
-            System.out.println("Voulez vous attaquer le "+((Creature)a).getClass().getName()+" qui se trouve en "+((Creature)a).getPos()+" ? (Y/n)");
+            System.out.println("Voulez vous attaquer le "+((Creature)a).getClass().getSimpleName()+" qui se trouve en "+((Creature)a).getPos()+" ? (Y/n)");
             scanner = sc3.nextLine();
             if (scanner.equals("y")){
                 System.out.println("Vie de l'adversaire avant attaque :");
