@@ -198,12 +198,12 @@ public abstract class Personnage extends Creature {
     int y = this.getPos().getY();
     for (int i = Math.max(0,x-n) ; i <= Math.min(x+n,50) ; i++ ){
         for (int j = Math.max(0,x-n) ; j <= Math.min(x+n,50); j++ ){
-                if ((this.map[i][j] instanceof Creature)&&!(i==x&&j==y)){
-                        attaquables.add(this.map[i][j]);
+                if ((Personnage.map[i][j] instanceof Creature)&&!(i==x&&j==y)){
+                        attaquables.add(Personnage.map[i][j]);
                 }
         }
     }
-    attaquables.remove(this.map[x][y]);
+    attaquables.remove(Personnage.map[x][y]);
     return attaquables;
     }
 
