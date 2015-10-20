@@ -63,8 +63,8 @@ public class Joueur {
         Random generateurAleatoire = new Random();
         switch (nb){
             case 1 :
-                p.pos.setX(25);
-                p.pos.setY(25);
+                p.pos.setX(25+generateurAleatoire.nextInt(3));
+                p.pos.setY(25+generateurAleatoire.nextInt(3));
                 p.pourcentageAtt = generateurAleatoire.nextInt(10) + 55 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 70 ;
                 p.ptVie = 100 ;
@@ -75,8 +75,8 @@ public class Joueur {
                 ((Archer)p).setNbFleches(generateurAleatoire.nextInt(3) + 10) ;
                 break;
             case 2 :
-                p.pos.setX(25);
-                p.pos.setY(25);
+                p.pos.setX(25+generateurAleatoire.nextInt(3));
+                p.pos.setY(25+generateurAleatoire.nextInt(3));
                 p.pourcentageAtt = generateurAleatoire.nextInt(10) + 75 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 40 ;
                 p.ptVie = 100 ;
@@ -87,8 +87,8 @@ public class Joueur {
                 ((Guerrier)p).setViolence(generateurAleatoire.nextInt(5) + 5);
                 break;
             case 3 :
-                p.pos.setX(25);
-                p.pos.setY(25);
+                p.pos.setX(25+generateurAleatoire.nextInt(3));
+                p.pos.setY(25+generateurAleatoire.nextInt(3));
                 p.pourcentageAtt = generateurAleatoire.nextInt(10) + 50 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 75 ;
                 p.ptVie = 100 ;
@@ -101,8 +101,8 @@ public class Joueur {
                 ((Mage)p).setPourcentageMag(generateurAleatoire.nextInt(5)+40);
                 break;
             default :
-                p.pos.setX(25);
-                p.pos.setY(25);       
+                p.pos.setX(25+generateurAleatoire.nextInt(3));
+                p.pos.setY(25+generateurAleatoire.nextInt(3));       
                 p.degAtt = generateurAleatoire.nextInt(2) + 10 ;
                 p.pourcentageAtt = generateurAleatoire.nextInt(5) + 70 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 20 ;
