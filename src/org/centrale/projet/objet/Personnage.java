@@ -247,7 +247,7 @@ public abstract class Personnage extends Creature {
             System.out.print("O ");
         }
         else if (contenuCase instanceof Lapin){
-            System.out.print("L ");
+            System.out.print("R ");
         }
         else {
             System.out.print("* ");

@@ -35,7 +35,7 @@ public class World {
         Point2D position = new Point2D();
         Random generateurAleatoire = new Random();
         
-        int nbCreatures = 20;
+        int nbCreatures = 200;
         
         int idCreature;
         
@@ -110,13 +110,12 @@ public class World {
             
             while (b) {
                 dx = generateurAleatoire.nextInt(20)-10;
-                position.setX(c.getPos().getX() + dx);
+                
                 dy = generateurAleatoire.nextInt(20)-10;
-                position.setY(c.getPos().getY() + dy);
-                if (((position.getX() > 0) && (position.getX() < 50) && (position.getY() > 0) && (position.getY() < 50))){
+                if (((c.getPos().getX()+dx > 0) && (c.getPos().getX()+dx < 50) && (c.getPos().getY()+dy > 0) && (c.getPos().getY()+dy < 50))){
                     if (ElementDuJeu.map[c.getPos().getX() + dx][c.getPos().getY() + dy] == null) {
                         b = false;
-                    }
+                    }                
                 }
                 
                 

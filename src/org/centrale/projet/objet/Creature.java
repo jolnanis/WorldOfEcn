@@ -187,19 +187,14 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
         Random rng = new Random();
         int delta1 = rng.nextInt(2)-1;
         int delta2 = rng.nextInt(2)-1;
-        this.pos.setX(this.pos.getX()+delta1);
-        this.pos.setY(this.pos.getY()+delta2);
-        while (((this.pos.getX()+delta1)<0) ||((this.pos.getX()+delta1)>50)|| 
-               ((this.pos.getY()+delta2)<0) || ((this.pos.getY()+delta2)>50)||
+        while (((this.pos.getX()+delta1)<=0) || ((this.pos.getX()+delta1)>=50)|| 
+               ((this.pos.getY()+delta2)<=0) || ((this.pos.getY()+delta2)>=50)||
                (ElementDuJeu.map[this.pos.getX()+delta1][this.pos.getY()+delta2] != null )){
-           
             delta1 = rng.nextInt(2)-1;
             delta2 = rng.nextInt(2)-1;
-            this.pos.setX(this.pos.getX()+delta1);
-            this.pos.setY(this.pos.getY()+delta2);
-            
-        }
-        
+     }
+        this.pos.setX(this.pos.getX()+delta1);
+        this.pos.setY(this.pos.getY()+delta2);
         this.placeDansMap() ;
 
     }
