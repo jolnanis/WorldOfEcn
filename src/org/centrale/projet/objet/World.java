@@ -150,14 +150,15 @@ public class World {
             player.jCombattre();
             System.out.println("Vie du joueur après combat");
             System.out.println(player.p.ptVie);
-            for (int i=0; i<=player.p.stock.size(); i++){
-                if (player.p.stock.get(i).duree==0){
-                    player.p.stock.remove(i);
+            if (player.p.stock.size() != 0){
+                for (int i=0; i<=player.p.stock.size(); i++){
+                    if (player.p.stock.get(i).duree==0){
+                        player.p.stock.remove(i);
+                    }
+                    else{
+                        player.p.stock.get(i).duree --;
+                    }
                 }
-                else{
-                    player.p.stock.get(i).duree --;
-                }
-                
             }
     }
 

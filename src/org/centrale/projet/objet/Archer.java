@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author ADMIN
  */
-public class Archer extends Personnage {
+public class Archer extends Personnage implements Combattant {
 
  //Attributs
     /**
@@ -92,7 +92,7 @@ public class Archer extends Personnage {
         if (this.nbFleches > 0){
             this.nbFleches --;
                 if (jetDe<=this.pourcentageAtt)
-                c.setPtVie(this.degAtt);
+                c.setPtVie(c.getPtVie()-this.degAtt);
         }
         
     }

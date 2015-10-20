@@ -124,7 +124,7 @@ public class Mage extends Personnage implements Combattant {
         int jetDe = rng.nextInt(99)+1;
         this.ptMana --;
         if (jetDe<=this.pourcentageMag)
-            c.setPtVie(this.degMag);
+            c.setPtVie(c.getPtVie()-this.degMag);
         
         
     }

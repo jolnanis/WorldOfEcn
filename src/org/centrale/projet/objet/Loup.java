@@ -70,7 +70,7 @@ public class Loup extends Monster implements Combattant {
             if (jetDe2 <= c.pourcentagePar)
                 c.setPtVie(this.degAtt-c.getPourcentagePar());
             else
-                c.setPtVie(this.degAtt);
+                c.setPtVie(c.getPtVie()-this.degAtt);
             }
         
     }
