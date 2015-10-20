@@ -198,6 +198,19 @@ public class Joueur {
                 System.out.println("Vie de l'adversaire avant attaque :");
                 System.out.println(((Creature)a).ptVie);
                 ((Combattant)this.p).combattre((Creature)a);
+                if ((this.p instanceof Archer) || (this.p instanceof Mage)){
+                    if (this.p.pos.distance(((Creature)a).pos) > 1){
+                        if (((Creature)a) instanceof Archer || ((Creature)a) instanceof Mage){
+                            ((Creature)a).combattre(p);
+                        }
+                    }
+                    else{
+                        ((Creature)a).combattre(p);
+                    }
+                }
+                else{
+                    ((Creature)a).combattre(p);
+                }
                 System.out.println("Vie de l'adversaire après attaque :");
                 System.out.println(((Creature)a).ptVie);
             }
