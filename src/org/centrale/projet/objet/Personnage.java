@@ -213,8 +213,8 @@ public abstract class Personnage extends Creature {
         int x = this.getPos().getX();
         int y = this.getPos().getY();
         System.out.println(x+" "+y);
-        for (int i = Math.max(0, x - N); i <= Math.min(x + N, 50); i++) {
-            for (int j = Math.max(0, x - N); j <= Math.min(x + N, 50); j++) {
+        for (int i = 49; i >= 0; i--) {
+            for (int j = 0; j < 50; j++) {
                 this.afficherCase(i, j);
             }
             System.out.println();
