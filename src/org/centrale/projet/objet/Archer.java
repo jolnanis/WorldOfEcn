@@ -94,8 +94,16 @@ public class Archer extends Personnage implements Combattant {
         int jetDe = rng.nextInt(99)+1;
         if (this.nbFleches > 0){
             this.nbFleches --;
-                if (jetDe<=this.pourcentageAtt)
-                c.setPtVie(c.getPtVie()-this.degAtt);
+                if (jetDe<=this.pourcentageAtt){
+                    c.setPtVie(c.getPtVie()-this.degAtt);
+                    System.out.println("Touché !!");
+                    }
+                else{
+                    System.out.println("Ha, raté..");
+                }
+        }
+        else{
+            System.out.println("Plus de flèches !");
         }
         
     }

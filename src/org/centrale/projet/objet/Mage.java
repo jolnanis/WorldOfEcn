@@ -124,9 +124,13 @@ public class Mage extends Personnage implements Combattant {
         Random rng = new Random();
         int jetDe = rng.nextInt(99)+1;
         this.ptMana --;
-        if (jetDe<=this.pourcentageMag)
+        if (jetDe<=this.pourcentageMag){
             c.setPtVie(c.getPtVie()-this.degMag);
-        
+            System.out.println("Touché !!");
+        }
+        else {
+            System.out.println("Evité !");
+        }
         
     }
     
