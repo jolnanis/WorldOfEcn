@@ -220,31 +220,31 @@ public abstract class Personnage extends Creature {
     public void afficherCase(int i, int j){
         ElementDuJeu contenuCase = Personnage.map[i][j];
         if (contenuCase == null){
-            System.out.print(".");
+            System.out.print(". ");
         }
-        else if (contenuCase instanceof Paysan){
-            System.out.print("P");
+        else if (contenuCase.equals(this)){
+            System.out.print("Y ");
         }
         else if (contenuCase instanceof Loup){
-            System.out.print("L");
+            System.out.print("L ");
         }
         else if (contenuCase instanceof Archer){
-            System.out.print("A");
+            System.out.print("A ");
         }
         else if (contenuCase instanceof Guerrier){
-            System.out.print("G");
+            System.out.print("G ");
         }
         else if (contenuCase instanceof Mage){
-            System.out.print("M");
+            System.out.print("M ");
         }
         else if (contenuCase instanceof Objet){
-            System.out.print("O");
+            System.out.print("O ");
         }
-        else if (contenuCase == this){
-            System.out.print("Y");
+        else if (contenuCase instanceof Lapin){
+            System.out.print("L ");
         }
         else {
-            System.out.print("*");
+            System.out.print("* ");
         }
         
     }
