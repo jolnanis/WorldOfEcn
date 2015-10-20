@@ -102,7 +102,7 @@ public class Joueur {
                 break;
             default :
                 p.pos.setX(25);
-                p.pos.setY(25);
+                p.pos.setY(25);       
                 p.degAtt = generateurAleatoire.nextInt(2) + 10 ;
                 p.pourcentageAtt = generateurAleatoire.nextInt(5) + 70 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 20 ;
@@ -111,6 +111,7 @@ public class Joueur {
                 p.setPourcentageResistMag(generateurAleatoire.nextInt(5)+2);
                 break;
         }
+        p.placeDansMap();
     }
     
     public void peutSeDeplacer(Point2D position){
