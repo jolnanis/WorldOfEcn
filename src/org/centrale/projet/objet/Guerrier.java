@@ -87,7 +87,7 @@ public class Guerrier extends Personnage implements Combattant {
         int jetDe2 = rng.nextInt(99)+1;
         if (jetDe1 <= this.pourcentageAtt){
             if (jetDe2 <= c.pourcentagePar)
-                c.setPtVie(c.getPtVie()-this.degAtt + c.getPourcentagePar());
+                c.setPtVie(c.getPtVie()-this.degAtt + c.getPtPar());
             else
                 c.setPtVie(c.getPtVie()-this.degAtt);
             }
