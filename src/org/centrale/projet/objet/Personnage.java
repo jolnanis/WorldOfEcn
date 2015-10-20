@@ -28,6 +28,7 @@ public abstract class Personnage extends Creature {
      */
     public Personnage() {
         super();
+        this.stock = new LinkedList<Nourriture>();
     }
 
 
