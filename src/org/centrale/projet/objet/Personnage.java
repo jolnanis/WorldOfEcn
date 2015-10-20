@@ -2,6 +2,7 @@ package org.centrale.projet.objet;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Scanner;
 
 
 /*
@@ -206,5 +207,27 @@ public abstract class Personnage extends Creature {
     attaquables.remove(Personnage.map[x][y]);
     return attaquables;
     }
-
+    
+    public LinkedList<Creature> chercherPeutAttaquer(){
+        LinkedList peutAttaquer = new LinkedList<Creature>();
+        int x = this.getPos().getX();
+        int y = this.getPos().getY();
+        for (int i = Math.max(0, x-10) ; i <= Math.min(x+10, 50); i++){
+            for (int j = Math.max(0, x-10); j<= Math.min(x+10,50); j++){
+                if (((Personnage.map[i][j] instanceof Archer) || (Personnage.map[i][j] instanceof Mage)) && !(i==x && j==y)){
+                    peutAttaquer.add(Personnage.map[i][j]);
+                }
+            }
+        }
+        for (int i = Math.max(0, x-1) ; i <= Math.min(x+1, 50); i++){
+            for (int j = Math.max(0, x-1); j<= Math.min(x+1,50); j++){
+                if (((Personnage.map[i][j] instanceof Guerrier) || (Personnage.map[i][j] instanceof Loup)) && !(i==x && j==y)){
+                    peutAttaquer.add(Personnage.map[i][j]);
+                }
+            }
+        }
+        peutAttaquer.remove(Personnage.map[x][y]);
+        return peutAttaquer;
+    }
+    
 }

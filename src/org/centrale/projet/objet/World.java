@@ -2,6 +2,7 @@ package org.centrale.projet.objet;
 
 import java.util.Random ;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -134,10 +135,8 @@ public class World {
             
         }
         
+    }    
 
-        
- 
-    }
     
     public void tourDuJeu(Joueur player){
         for (Creature c : creatures){
