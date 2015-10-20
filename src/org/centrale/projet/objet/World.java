@@ -68,15 +68,15 @@ public class World {
             switch (idCreature) {
                     case 0 : creatures.add(new Lapin(50, 60, 30, 5, 5, new Point2D(0,0)));
                     break;
-                    case 1 : creatures.add(new Archer(7,100, 50, 50, 70, 40, 10, new Point2D(0,0), "Robin", new LinkedList<Nourriture>()));
+                    case 1 : creatures.add(new Archer(7,100, 50, 50, 70, 40, 50, 10, new Point2D(0,0), "Robin", new LinkedList<Nourriture>()));
                     break;
-                    case 2 : creatures.add(new Paysan(80, 70, 10, 10, 60, 1, new Point2D(0,0), "Aeon", new LinkedList<Nourriture>()));
+                    case 2 : creatures.add(new Paysan(80, 70, 10, 10, 60, 30, 1, new Point2D(0,0), "Aeon", new LinkedList<Nourriture>()));
                     break;
-                    case 3 : creatures.add(new Guerrier(5, 100, 70, 50, 20, 60, 1, new Point2D(0,0), "Arthur", new LinkedList<Nourriture>()));
+                    case 3 : creatures.add(new Guerrier(5, 100, 70, 50, 20, 60, 60, 1, new Point2D(0,0), "Arthur", new LinkedList<Nourriture>()));
                     break;
-                    case 4 : creatures.add(new Loup(false, 100, 60, 20, 60 , new Point2D(0,0)));
+                    case 4 : creatures.add(new Loup(false, 100, 60, 20, 60 , 30, new Point2D(0,0)));
                     break;
-                    case 5 : creatures.add(new Mage(20, 50, 60, 100, 30, 80, 50, 40, 10, new Point2D(0,0), "Merlin", new LinkedList<Nourriture>()));
+                    case 5 : creatures.add(new Mage(20, 50, 60, 100, 30, 80, 50, 50, 50, 10, new Point2D(0,0), "Merlin", new LinkedList<Nourriture>()));
                     break;
                     
                     

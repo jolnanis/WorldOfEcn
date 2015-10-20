@@ -69,6 +69,7 @@ public class Joueur {
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 70 ;
                 p.ptVie = 100 ;
                 p.degAtt = generateurAleatoire.nextInt(5) + 25 ;
+                p.ptPar = generateurAleatoire.nextInt(5) + 50 ;
                 p.setPourcentageResistMag(generateurAleatoire.nextInt(5) + 50) ;
                 p.setDistAttMax(generateurAleatoire.nextInt(2) + 7) ;
                 ((Archer)p).setNbFleches(generateurAleatoire.nextInt(3) + 10) ;
@@ -79,7 +80,8 @@ public class Joueur {
                 p.pourcentageAtt = generateurAleatoire.nextInt(10) + 75 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 40 ;
                 p.ptVie = 100 ;
-                p.degAtt = generateurAleatoire.nextInt(5) + 40 ;
+                p.degAtt = generateurAleatoire.nextInt(5) + 50 ;
+                p.ptPar = generateurAleatoire.nextInt(5) + 60 ;
                 p.setPourcentageResistMag(generateurAleatoire.nextInt(5)+10);
                 p.setDistAttMax(1);
                 ((Guerrier)p).setViolence(generateurAleatoire.nextInt(5) + 5);
@@ -90,7 +92,8 @@ public class Joueur {
                 p.pourcentageAtt = generateurAleatoire.nextInt(10) + 50 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 75 ;
                 p.ptVie = 100 ;
-                p.degAtt = generateurAleatoire.nextInt(5) + 20 ;
+                p.degAtt = generateurAleatoire.nextInt(5) + 30 ;
+                p.ptPar = generateurAleatoire.nextInt(5) + 40 ;
                 p.setDistAttMax(generateurAleatoire.nextInt(2)+10);
                 p.setPourcentageResistMag(generateurAleatoire.nextInt(5)+70);
                 ((Mage)p).setPtMana(generateurAleatoire.nextInt(10)+60);
@@ -103,6 +106,7 @@ public class Joueur {
                 p.degAtt = generateurAleatoire.nextInt(2) + 10 ;
                 p.pourcentageAtt = generateurAleatoire.nextInt(5) + 70 ;
                 p.pourcentagePar = generateurAleatoire.nextInt(5) + 20 ;
+                p.ptPar = generateurAleatoire.nextInt(5) + 30 ;
                 p.setDistAttMax(3);
                 p.setPourcentageResistMag(generateurAleatoire.nextInt(5)+2);
                 break;
