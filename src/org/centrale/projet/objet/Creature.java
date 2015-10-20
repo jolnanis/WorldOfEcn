@@ -111,6 +111,10 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
         return ptVie;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getPtPar(){
         return ptPar;
     }
@@ -157,7 +161,11 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
         this.ptVie = ptVie;
     }
     
-    public void stPtPar(int ptPar){
+    /**
+     *
+     * @param ptPar
+     */
+    public void setPtPar(int ptPar){
         this.ptPar = ptPar;
     }
     
@@ -204,6 +212,10 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
 
     }
     
+    /**
+     *
+     * @param c
+     */
     public void combattre(Creature c) {
     
     }

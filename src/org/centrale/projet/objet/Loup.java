@@ -62,6 +62,10 @@ public class Loup extends Monster implements Combattant {
         this.rage = rage;
     }
     
+    /**
+     * Gare à la morsure.
+     * @param c
+     */
     @Override
         public void combattre (Creature c){
         Random rng = new Random();

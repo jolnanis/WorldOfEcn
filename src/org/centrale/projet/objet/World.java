@@ -16,7 +16,11 @@ import java.util.Scanner;
  */
 public class World {
     //Attributs
-   public LinkedList<Creature> creatures;
+
+    /**
+     * Créatures présentes dans le monde (accès en liste pour permettre de mapper des actions sur toutes les créatures)
+     */
+       public LinkedList<Creature> creatures;
     
  
     //Constructeurs
@@ -137,7 +141,10 @@ public class World {
         
     }    
 
-    
+    /**
+     * Effectue un tour de jeu (déplacement et attaques) pour un joueur. 
+     * @param player
+     */
     public void tourDuJeu(Joueur player){
         
         for (Creature c : creatures){

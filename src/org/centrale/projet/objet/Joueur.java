@@ -15,32 +15,56 @@ import java.util.Scanner;
  */
 public class Joueur {
     //Attributs
+    /**
+     * Personnage contrôlé par le joueur.
+     */
     Personnage p;
     
     //Constructeurs
-    public Joueur(){
+
+    /**
+     * Constructeur sans argument de Joueur.
+     */
+        public Joueur(){
             this.p = null;
     }
     
-
+    /**
+     * Constructeur de recopie de Joueur.
+     * @param p
+     */
     public Joueur(Personnage p) {
         this.p = p;
     }
     
     //Accesseurs
 
+    /**
+     *
+     * @return
+     */
+    
     public Personnage getP() {
         return p;
     }
     
     //Modificateurs
 
+    /**
+     *
+     * @param p
+     */
+    
     public void setP(Personnage p) {
         this.p = p;
     }
     
     //Méthodes
-    public void bienvenue(){
+
+    /**
+     * Méthode permettant d'initialiser un joueur.
+     */
+        public void bienvenue(){
         System.out.println("1 = Archer ; 2 = Guerrier ; 3 = Mage. Rentrez le chiffre correspondant au personnage souhaité");
         Scanner sc = new Scanner(System.in);
         int nb = sc.nextInt();
@@ -114,6 +138,10 @@ public class Joueur {
         p.placeDansMap();
     }
     
+    /**
+     * Détermine si un joueur peut se déplacer vers position (en coordonnées relative) et, si il peut, effectue le déplacement.
+     * @param position
+     */
     public void peutSeDeplacer(Point2D position){
         if (((p.pos.getX() + position.getX() >= 0) && (p.pos.getX() + position.getX() <= 50) && 
              (p.pos.getY() + position.getY() >= 0) && (p.pos.getY() + position.getY() <= 50)) &&
@@ -128,6 +156,9 @@ public class Joueur {
         
     }
     
+    /**
+     * Invite de déplacement pour un joueur.
+     */
     public void jDeplacer(){
         System.out.println("Les déplacements se font de la manière suivante :"
                            + " Haut : 5 "
@@ -177,9 +208,11 @@ public class Joueur {
                 
         }
     }
-    
-    //Choix d'un combat.
-    public void jCombattre(){
+
+    /**
+     * Invite de combat.
+     */
+        public void jCombattre(){
         LinkedList attaquables = new LinkedList<Creature>();
         if (this.p instanceof Guerrier) {
             //On charge une liste de créatures adjacentes attaquables

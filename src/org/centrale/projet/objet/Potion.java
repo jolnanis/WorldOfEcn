@@ -9,6 +9,10 @@ package org.centrale.projet.objet;
  * @author nico
  */
 public class Potion extends Objet {
+
+    /**
+     *
+     */
     public Potion(){
         super();
     }

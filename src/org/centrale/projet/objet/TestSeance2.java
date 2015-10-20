@@ -12,6 +12,11 @@ import java.util.Scanner;
  * @author nico
  */
 public class TestSeance2 {
+
+    /**
+     *
+     * @param args
+     */
     public static void main (String[] args){
         ElementDuJeu.map = new ElementDuJeu[50][50];
         World sekai = new World();

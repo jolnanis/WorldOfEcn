@@ -12,16 +12,36 @@ import java.util.Random;
  * @author Antoine
  */
 public class Nourriture extends Objet{
-       protected int bonusmalus ;
-       protected String name ;
-       protected int duree;
+
+    /**
+     * Quantité algébrique de bonus apporté par l'objet.
+     */
+    protected int bonusmalus ;
+
+    /**
+     * Nom de la Nourriture.
+     */
+    protected String name ;
+
+    /**
+     * Durée des effets.
+     */
+    protected int duree;
        
        //Constructeur
-       public Nourriture(){
+
+    /**
+     *
+     */
+           public Nourriture(){
            super();
        }
        
-       public int DonnerValeur(){
+    /**
+     *
+     * @return
+     */
+    public int DonnerValeur(){
            Random generateurAleatoire = new Random();
            this.bonusmalus = generateurAleatoire.nextInt(20) - 10;
            if (this.bonusmalus < 0) {
