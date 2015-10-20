@@ -140,10 +140,12 @@ public class World {
     }
     
     public void tourDuJeu(Joueur player){
-        for (Creature c : creatures){
-                c.pos.affiche();
-                c.deplace();
-            }
+        
+//        for (Creature c : creatures){
+//                c.pos.affiche();
+//                c.deplace();
+//            }
+            player.p.afficherEnvirons();
             player.jDeplacer();
             System.out.println("Position modifiée du joueur");
             player.p.pos.affiche();
