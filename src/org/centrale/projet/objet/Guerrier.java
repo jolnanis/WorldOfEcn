@@ -36,12 +36,15 @@ public class Guerrier extends Personnage implements Combattant {
      * @param pourcentagePar
      * @param pourcentageResistMag
      * @param degAtt
+     * @param ptPar
      * @param distAttMax
      * @param pos
+     * @param nom
+     * @param stock
      */
 
-    public Guerrier(int violence, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
-        super(ptVie, pourcentageAtt, pourcentagePar, pourcentageResistMag, degAtt, distAttMax, pos, nom, stock);
+    public Guerrier(int violence, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int ptPar, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
+        super(ptVie, pourcentageAtt, pourcentagePar, pourcentageResistMag, degAtt, ptPar, distAttMax, pos, nom, stock);
         this.violence = violence;
     }
     
@@ -84,7 +87,7 @@ public class Guerrier extends Personnage implements Combattant {
         int jetDe2 = rng.nextInt(99)+1;
         if (jetDe1 <= this.pourcentageAtt){
             if (jetDe2 <= c.pourcentagePar)
-                c.setPtVie(this.degAtt-c.getPourcentagePar());
+                c.setPtVie(c.getPtVie()-this.degAtt + c.getPourcentagePar());
             else
                 c.setPtVie(c.getPtVie()-this.degAtt);
             }

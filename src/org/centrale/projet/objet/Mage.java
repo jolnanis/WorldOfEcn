@@ -43,12 +43,13 @@ public class Mage extends Personnage implements Combattant {
      * @param pourcentagePar
      * @param pourcentageResistMag
      * @param degAtt
+     * @param ptPar
      * @param distAttMax
      * @param pos
      */
 
-    public Mage(int ptMana, int degMag, int pourcentageMag, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
-        super(ptVie, pourcentageAtt, pourcentagePar, pourcentageResistMag, degAtt, distAttMax, pos, nom, stock);
+    public Mage(int ptMana, int degMag, int pourcentageMag, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int ptPar, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
+        super(ptVie, pourcentageAtt, pourcentagePar, pourcentageResistMag, degAtt, ptPar, distAttMax, pos, nom, stock);
         this.ptMana = ptMana;
         this.degMag = degMag;
         this.pourcentageMag = pourcentageMag;

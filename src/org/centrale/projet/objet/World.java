@@ -66,7 +66,7 @@ public class World {
         for (int i = 0; i<nbCreatures;i++) {
             idCreature = generateurAleatoire.nextInt(5);
             switch (idCreature) {
-                    case 0 : creatures.add(new Lapin(50, 60, 30, 5, new Point2D(0,0)));
+                    case 0 : creatures.add(new Lapin(50, 60, 30, 5, 5, new Point2D(0,0)));
                     break;
                     case 1 : creatures.add(new Archer(7,100, 50, 50, 70, 40, 10, new Point2D(0,0), "Robin", new LinkedList<Nourriture>()));
                     break;

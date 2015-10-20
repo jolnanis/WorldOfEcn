@@ -36,10 +36,11 @@ public class Loup extends Monster implements Combattant {
      * @param pourcentageAtt
      * @param pourcentagePar
      * @param degAtt
+     * @param ptPar
      * @param pos
      */
-    public Loup(boolean rage, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, Point2D pos) {
-        super(ptVie, pourcentageAtt, pourcentagePar, degAtt, pos);
+    public Loup(boolean rage, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+        super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
         this.rage = rage;
     }
     
@@ -68,7 +69,7 @@ public class Loup extends Monster implements Combattant {
         int jetDe2 = rng.nextInt(99)+1;
         if (jetDe1 <= this.pourcentageAtt){
             if (jetDe2 <= c.pourcentagePar)
-                c.setPtVie(this.degAtt-c.getPourcentagePar());
+                c.setPtVie(c.getPtVie()-this.degAtt+c.getPourcentagePar());
             else
                 c.setPtVie(c.getPtVie()-this.degAtt);
             }

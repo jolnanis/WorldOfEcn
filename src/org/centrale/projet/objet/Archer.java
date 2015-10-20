@@ -40,12 +40,15 @@ public class Archer extends Personnage implements Combattant {
      * @param pourcentagePar
      * @param pourcentageResistMag
      * @param degAtt
+     * @param ptPar
      * @param distAttMax
      * @param pos
+     * @param nom
+     * @param stock
      */
 
-    public Archer(int nbFleches, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
-        super(ptVie, pourcentageAtt, pourcentagePar, pourcentageResistMag, degAtt, distAttMax, pos, nom, stock);
+    public Archer(int nbFleches, int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int ptPar, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
+        super(ptVie, pourcentageAtt, pourcentagePar, pourcentageResistMag, degAtt, ptPar, distAttMax, pos, nom, stock);
         this.nbFleches = nbFleches;
     }
     

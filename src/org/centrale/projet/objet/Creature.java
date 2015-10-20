@@ -28,7 +28,10 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
      * Dégâts d'attaque
      */
     protected int degAtt;
-
+    /**
+     * Points de parade
+     */
+    protected int ptPar;
 
 //Constructeurs
     /**
@@ -45,12 +48,14 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
      * @param pourcentagePar
      * @param degAtt
      * @param pos
+     * @param ptPar
      */
-    public Creature(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, Point2D pos) {
+    public Creature(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         this.ptVie = ptVie;
         this.pourcentageAtt = pourcentageAtt;
         this.pourcentagePar = pourcentagePar;
         this.degAtt = degAtt;
+        this.ptPar = ptPar;
         this.pos = pos;
     }
     /**
@@ -62,6 +67,7 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
         this.pourcentageAtt = c.pourcentageAtt;
         this.pourcentagePar = c.pourcentagePar;
         this.degAtt = c.degAtt;
+        this.ptPar = c.ptPar;
         this.pos = new Point2D(c.pos);
     }
 // Accesseurs
@@ -105,6 +111,10 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
         return ptVie;
     }
     
+    public int getPtPar(){
+        return ptPar;
+    }
+    
 //Modificateurs
 
     /**
@@ -146,6 +156,11 @@ public abstract class Creature  extends ElementDuJeu implements Deplacable{
     public void setPtVie(int ptVie) {
         this.ptVie = ptVie;
     }
+    
+    public void stPtPar(int ptPar){
+        this.ptPar = ptPar;
+    }
+    
     /**
      * Déplacement selon un vecteur (représenté par la classe Point2D).
      * @param vecteur

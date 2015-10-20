@@ -19,10 +19,11 @@ public class Lapin extends Monster {
      * @param pourcentageAtt
      * @param pourcentagePar
      * @param degAtt
+     * @param ptPar
      * @param pos
      */
-    public Lapin(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, Point2D pos) {
-        super(ptVie, pourcentageAtt, pourcentagePar, degAtt, pos);
+    public Lapin(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+        super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
 
     /**

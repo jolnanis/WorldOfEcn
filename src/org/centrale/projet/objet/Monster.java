@@ -23,10 +23,11 @@ abstract public class Monster extends Creature {
      * @param pourcentageAtt
      * @param pourcentagePar
      * @param degAtt
+     * @param ptPar
      * @param pos
      */
-    public Monster(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, Point2D pos) {
-        super(ptVie, pourcentageAtt, pourcentagePar, degAtt, pos);
+    public Monster(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+        super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
     }
     /**
      * 

@@ -38,12 +38,14 @@ public abstract class Personnage extends Creature {
      * @param pourcentagePar
      * @param pourcentageResistMag
      * @param degAtt
+     * @param ptPar
      * @param distAttMax
      * @param pos
      * @param nom
+     * @param stock
      */
-    public Personnage(int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
-        super(ptVie,pourcentageAtt, pourcentagePar,  degAtt, pos);
+    public Personnage(int ptVie, int pourcentageAtt, int pourcentagePar, int pourcentageResistMag, int degAtt, int ptPar, int distAttMax, Point2D pos, String nom, LinkedList<Nourriture> stock) {
+        super(ptVie,pourcentageAtt, pourcentagePar,  degAtt, ptPar, pos);
         this.pourcentageResistMag = pourcentageResistMag;
         this.distAttMax = distAttMax;
         this.nom = nom ;
