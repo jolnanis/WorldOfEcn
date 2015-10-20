@@ -234,6 +234,9 @@ public abstract class Personnage extends Creature {
         else if (contenuCase instanceof Archer){
             System.out.print("A ");
         }
+        else if (contenuCase instanceof Paysan){
+            System.out.print("P ");
+        }
         else if (contenuCase instanceof Guerrier){
             System.out.print("G ");
         }

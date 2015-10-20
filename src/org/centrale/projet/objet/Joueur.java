@@ -201,10 +201,15 @@ public class Joueur {
                 if ((this.p instanceof Archer) || (this.p instanceof Mage)){
                     if (this.p.pos.distance(((Creature)a).pos) > 1){
                         if (((Creature)a) instanceof Archer || ((Creature)a) instanceof Mage){
+                            System.out.println("Attention, la créature réplique !");
                             ((Creature)a).combattre(p);
+                        }
+                        else{
+                            System.out.println("Petit joueur, il est trop loin pour répondre.");
                         }
                     }
                     else{
+                        System.out.println("Attention, la créature réplique !");
                         ((Creature)a).combattre(p);
                     }
                 }
