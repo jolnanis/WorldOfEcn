@@ -18,6 +18,15 @@ public class Mana extends Potion {
         super();
         this.ptMana = 14;
     }
+
+    public void setPtMana(int ptMana) {
+        this.ptMana = ptMana;
+    }
+
+    public int getPtMana() {
+        return ptMana;
+    }
+    
     
 
 }
