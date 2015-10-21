@@ -27,7 +27,23 @@ abstract public class ElementDuJeu {
     public ElementDuJeu() {
         this.pos = new Point2D(0,0);
     }
-        //Méthodes se rapprochant de getter et setter
+        //Getter et setter
+
+    public static ElementDuJeu[][] getMap() {
+        return map;
+    }
+
+    public static void setMap(ElementDuJeu[][] map) {
+        ElementDuJeu.map = map;
+    }
+
+    public Point2D getPos() {
+        return pos;
+    }
+
+    public void setPos(Point2D pos) {
+        this.pos = pos;
+    }
 
     /**
      * Ajoute un pointeur dans map vers l'élément d'où la méthode est appellée, à la cordonnée this.pos de la matrice.
