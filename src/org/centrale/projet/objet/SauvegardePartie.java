@@ -30,53 +30,21 @@ public class SauvegardePartie {
     }
     public void SauvegarderPartie(World sekai) {
       try{
+      
+      sekai.joueur1.p.enregistre(scripteur);
+      scripteur.newLine();
+      sekai.joueur2.p.enregistre(scripteur);
+      scripteur.newLine();
+      
+      
       LinkedList<ElementDuJeu> liste = new LinkedList<ElementDuJeu>();
       liste.addAll(sekai.creatures);
+      liste.remove(sekai.joueur1.p);
+      liste.remove(sekai.joueur2.p);
       liste.addAll(sekai.nourritures);
       liste.addAll(sekai.potions);
       for (ElementDuJeu el : liste) {
-          scripteur.write(el.getClass().getSimpleName()+" ");
-          if (el instanceof Creature){
-            if (el instanceof Personnage){
-                if (el instanceof Archer){
-                    scripteur.write(((Archer)el).getNbFleches()+" ");
-                }
-                if (el instanceof Guerrier){
-                    scripteur.write(((Guerrier)el).getViolence()+" ");
-                }
-                
-                if (el instanceof Mage){
-                    scripteur.write(((Mage)el).getPtMana()+" ");
-                    scripteur.write(((Mage)el).getDegMag()+" ");
-                    scripteur.write(((Mage)el).getPourcentageMag()+" ");
-                }
-                
-                scripteur.write(((Personnage)el).getPourcentageAtt()+" ");
-                scripteur.write(((Personnage)el).getPourcentagePar()+" ");
-                scripteur.write(((Personnage)el).getPourcentageResistMag()+" ");
-                scripteur.write(((Personnage)el).getDistAttMax()+" ");
-                scripteur.write(((Personnage)el).getNom()+" ");
-                }
-            scripteur.write(((Creature)el).getPtVie()+" ");
-            scripteur.write(((Creature)el).getDegAtt()+" ");
-            scripteur.write(((Creature)el).getPtPar()+" ");
-            scripteur.write(((Creature)el).getPourcentageAtt()+" ");
-            scripteur.write(((Creature)el).getPourcentagePar()+" ");
-            }
-          else {
-              if (el instanceof Mana){
-                scripteur.write(((Mana)el).getPtMana()+" ");
-              }
-              if (el instanceof Soin){ 
-                scripteur.write(((Soin)el).getPV()+" ");
-              }
-              if (el instanceof Nourriture){
-                scripteur.write(((Nourriture)el).getBonusmalus()+" ");
-                scripteur.write(((Nourriture)el).getName()+" ");
-                scripteur.write(((Nourriture)el).getDuree()+" ");
-              }
-          }
-          scripteur.write(el.getPos().getX()+" "+el.getPos().getY());
+          el.enregistre(scripteur);
           scripteur.newLine();
       }
       scripteur.close();

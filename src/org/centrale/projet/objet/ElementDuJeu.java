@@ -4,6 +4,12 @@
  */
 package org.centrale.projet.objet;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.StringTokenizer;
+
 /**
  *
  * @author nico
@@ -60,5 +66,51 @@ abstract public class ElementDuJeu {
     public static ElementDuJeu trouveDansMap(Point2D position){
         return ElementDuJeu.map[position.getX()][position.getY()];
     }
-    
+    public void enregistre(BufferedWriter scripteur) throws IOException{
+        
+          scripteur.write(this.getClass().getSimpleName()+" ");
+          if (this instanceof Creature){
+            if (this instanceof Personnage){
+                if (this instanceof Archer){
+                    scripteur.write(((Archer)this).getNbFleches()+" ");
+                }
+                if (this instanceof Guerrier){
+                    scripteur.write(((Guerrier)this).getViolence()+" ");
+                }
+                
+                if (this instanceof Mage){
+                    scripteur.write(((Mage)this).getPtMana()+" ");
+                    scripteur.write(((Mage)this).getDegMag()+" ");
+                    scripteur.write(((Mage)this).getPourcentageMag()+" ");
+                }
+                
+                scripteur.write(((Personnage)this).getPourcentageAtt()+" ");
+                scripteur.write(((Personnage)this).getPourcentagePar()+" ");
+                scripteur.write(((Personnage)this).getPourcentageResistMag()+" ");
+                scripteur.write(((Personnage)this).getDistAttMax()+" ");
+                scripteur.write(((Personnage)this).getNom()+" ");
+                }
+            scripteur.write(((Creature)this).getPtVie()+" ");
+            scripteur.write(((Creature)this).getDegAtt()+" ");
+            scripteur.write(((Creature)this).getPtPar()+" ");
+            scripteur.write(((Creature)this).getPourcentageAtt()+" ");
+            scripteur.write(((Creature)this).getPourcentagePar()+" ");
+            }
+          else {
+              if (this instanceof Mana){
+                scripteur.write(((Mana)this).getPtMana()+" ");
+              }
+              if (this instanceof Soin){ 
+                scripteur.write(((Soin)this).getPV()+" ");
+              }
+              if (this instanceof Nourriture){
+                scripteur.write(((Nourriture)this).getBonusmalus()+" ");
+                scripteur.write(((Nourriture)this).getName()+" ");
+                scripteur.write(((Nourriture)this).getDuree()+" ");
+              }
+          }
+          scripteur.write(this.getPos().getX()+" "+this.getPos().getY());
+    }   
+
+
 }

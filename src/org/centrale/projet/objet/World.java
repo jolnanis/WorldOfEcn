@@ -1,8 +1,10 @@
 package org.centrale.projet.objet;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Random ;
 import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,6 +25,8 @@ public class World {
        public LinkedList<Creature> creatures;
        public LinkedList<Potion> potions;
        public LinkedList<Nourriture> nourritures;
+       public Joueur joueur1;
+       public Joueur joueur2;
     
  
     //Constructeurs
@@ -34,6 +38,9 @@ public class World {
             this.creatures = new LinkedList<Creature>();
             this.nourritures = new LinkedList<Nourriture>();
             this.potions = new LinkedList<Potion>();
+            this.joueur1 = new Joueur();
+            this.joueur2 = new Joueur();
+            
     }
     //Méthodes
     /**
@@ -212,5 +219,60 @@ public class World {
             }
     }
 
-    
+public void charge(String ligne) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+
+          StringTokenizer tokenizer = new StringTokenizer(ligne, " ");
+          Class cl = Class.forName("org.centrale.projet.objet."+tokenizer.nextToken());
+          Constructor ct = cl.getConstructor();
+          Object el = ct.newInstance();
+          if (el instanceof Creature){
+              this.creatures.add(((Creature)el));
+            if (el instanceof Personnage){
+                if (el instanceof Archer){
+                    ((Archer)el).setNbFleches(Integer.parseInt(tokenizer.nextToken()));
+                }
+                if (el instanceof Guerrier){
+                    ((Guerrier)el).setViolence(Integer.parseInt(tokenizer.nextToken()));
+                }
+                if (el instanceof Mage){
+                    ((Mage)el).setPtMana(Integer.parseInt(tokenizer.nextToken()));
+                    ((Mage)el).setDegMag(Integer.parseInt(tokenizer.nextToken()));
+                    ((Mage)el).setPourcentageMag(Integer.parseInt(tokenizer.nextToken()));
+                }
+                ((Personnage)el).setPourcentageAtt(Integer.parseInt(tokenizer.nextToken()));
+                ((Personnage)el).setPourcentagePar(Integer.parseInt(tokenizer.nextToken()));
+                ((Personnage)el).setPourcentageResistMag(Integer.parseInt(tokenizer.nextToken()));
+                ((Personnage)el).setDistAttMax(Integer.parseInt(tokenizer.nextToken()));
+                ((Personnage)el).setNom(tokenizer.nextToken());
+            }
+            
+                ((Creature)el).setPtVie(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setDegAtt(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPtPar(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPourcentageAtt(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPourcentagePar(Integer.parseInt(tokenizer.nextToken()));
+          }
+          else {
+              if (el instanceof Mana){
+                 ((Mana)el).setPtMana(Integer.parseInt(tokenizer.nextToken()));
+              }
+              if (el instanceof Soin){
+                 ((Soin)el).setPV(Integer.parseInt(tokenizer.nextToken())); 
+              }
+              if (el instanceof Nourriture){
+                 ((Nourriture)el).setBonusmalus(Integer.parseInt(tokenizer.nextToken()));
+                 ((Nourriture)el).setName(tokenizer.nextToken());
+                 ((Nourriture)el).setDuree(Integer.parseInt(tokenizer.nextToken()));
+                this.nourritures.add(((Nourriture)el));
+              }else{
+                this.potions.add(((Potion)el));
+              }
+          }
+          
+          Point2D pos = new Point2D(Integer.parseInt(tokenizer.nextToken()),
+          Integer.parseInt(tokenizer.nextToken()));
+          ((ElementDuJeu)el).setPos(pos);
+          ((ElementDuJeu)el).placeDansMap();
+      
+}    
 }
