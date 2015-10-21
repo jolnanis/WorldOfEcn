@@ -33,10 +33,35 @@ public class Nourriture extends Objet{
     /**
      *
      */
-           public Nourriture(){
+    
+    //Setters et getters
+    public Nourriture(){
            super();
        }
-       
+           
+    public int getBonusmalus() {
+        return bonusmalus;
+    }
+    
+    public void setBonusmalus(int bonusmalus) {
+        this.bonusmalus = bonusmalus;
+    }
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public int getDuree() {
+        return duree;
+    }
+    
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
+    
     /**
      *
      * @return
