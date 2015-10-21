@@ -46,7 +46,7 @@ public class Nourriture extends Objet{
            this.bonusmalus = generateurAleatoire.nextInt(20) - 10;
            if (this.bonusmalus < 0) {
                this.name = "Soupe de jus de chaussette";
-               this.duree = 10;
+               this.duree = 5;
            }
            if (this.bonusmalus > 0) {
                this.name = "Gateau au chocolat";

@@ -155,11 +155,13 @@ public abstract class Personnage extends Creature {
      */
     public void boire(Potion p){
         if (p instanceof Soin){
-            this.ptVie = this.ptVie + ((Soin)p).pV;  
+            this.ptVie = this.ptVie + ((Soin)p).pV;
+            System.out.println("Ha un peu de vie, ça fait du bien ! Nouveau pV : " + this.ptVie);
         }
         else {
             if (this instanceof Mage){
                 ((Mage)this).setPtMana(((Mage)this).getPtMana() + ((Mana)p).ptMana);
+                System.out.println("Ha, un peu de mana, ça fait du bien ! Nouveau mana : " + ((Mage)this).getPtMana());
             }
         }
     }
@@ -170,54 +172,62 @@ public abstract class Personnage extends Creature {
      */
     public void manger(Nourriture n){
         Random generateurAleatoire = new Random();
-        int carac = generateurAleatoire.nextInt(3);
+        int carac = generateurAleatoire.nextInt(4);
         switch (carac){
             case 0 :
                 int k = this.pourcentageAtt;
                 System.out.println("Votre pourcentage d'attaque était :" + k);
+                n.DonnerValeur();
                 this.pourcentageAtt = k + n.bonusmalus ;
+                System.out.println("bonus malus : " + n.bonusmalus);
                 this.stock.add(n);
                 if (k < this.pourcentageAtt){
-                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre pourcentage attaque est maintenant" + this.pourcentageAtt + " pendant 10 tours");
+                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre pourcentage attaque est maintenant" + this.pourcentageAtt + " pendant 7 tours");
                 }
                 else {
-                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette.Votre pourcentage attaque est maintenant" + this.pourcentageAtt + "pendant 10 tours ");
+                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette.Votre pourcentage attaque est maintenant" + this.pourcentageAtt + "pendant 5 tours ");
                 }
                 break;
             case 1 :
                 int l = this.pourcentagePar;
                 System.out.println("Votre pourcentage de parade était :" + l);
+                n.DonnerValeur();
                 this.pourcentagePar = l + n.bonusmalus ;
+                System.out.println("bonus malus : " + n.bonusmalus);
                 this.stock.add(n);
                 if (l < this.pourcentagePar){
-                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre pourcentage parade est maintenant" + this.pourcentagePar + " pendant 10 tours");
+                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre pourcentage parade est maintenant " + this.pourcentagePar + " pendant 7 tours");
                 }
                 else {
-                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette.Votre pourcentage parade est maintenant" + this.pourcentagePar + "pendant 10 tours ");
+                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette.Votre pourcentage parade est maintenant " + this.pourcentagePar + " pendant 5 tours ");
                 }
                 break;
             case 2 :
                 int m = this.degAtt;
                 System.out.println("Votre attaque était :" + m);
+                n.DonnerValeur();
                 this.degAtt = m + n.bonusmalus ;
+                System.out.println("bonus malus : " + n.bonusmalus);
                 this.stock.add(n);
                 if (m < this.degAtt){
-                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre attaque est maintenant" + this.degAtt + " pendant 10 tours");
+                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre attaque est maintenant " + this.degAtt + " pendant 7 tours");
                 }
                 else {
-                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette. Votre attaque est maintenant" + this.degAtt + "pendant 10 tours ");
+                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette. Votre attaque est maintenant " + this.degAtt + "pendant 5 tours ");
                 }
                 break;
-            case 3 :
+            default :
                 int o = this.distAttMax;
                 System.out.println("Votre pourcentage de parade était :" + o);
+                n.DonnerValeur();
                 this.distAttMax = o + n.bonusmalus ;
+                System.out.println("bonus malus : " + n.bonusmalus);
                 this.stock.add(n);
                 if (o < this.distAttMax){
-                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre distance maximale d'attaque est maintenant" + this.distAttMax + " pendant 10 tours");
+                    System.out.println("Bien joué, c'était un gâteau au chocolat. Votre distance maximale d'attaque est maintenant " + this.distAttMax + " pendant 5 tours");
                 }
                 else {
-                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette. Votre distance maximale d'attaque est maintenant" + this.distAttMax + "pendant 10 tours");
+                    System.out.println("Ha, pas de chance, c'était une soupe de jus de chaussette. Votre distance maximale d'attaque est maintenant " + this.distAttMax + "pendant 7 tours");
                 }
                 break;
         }
@@ -270,7 +280,9 @@ public abstract class Personnage extends Creature {
      * A pour Archer
      * G pour Guerrier
      * M pour Mage
-     * O pour les Objets (Nourriture ou Potion)
+     * N pour la Nourriture
+     * V pour les potions de vie
+     * W pour les potions de mana
      * @param i
      * @param j
      */
@@ -297,8 +309,14 @@ public abstract class Personnage extends Creature {
         else if (contenuCase instanceof Mage){
             System.out.print("M ");
         }
-        else if (contenuCase instanceof Objet){
-            System.out.print("O ");
+        else if (contenuCase instanceof Nourriture){
+            System.out.print("N ");
+        }
+        else if (contenuCase instanceof Potion){
+            System.out.print("V ");
+        }
+        else if (contenuCase instanceof Mana){
+            System.out.print("W ");
         }
         else if (contenuCase instanceof Lapin){
             System.out.print("R ");

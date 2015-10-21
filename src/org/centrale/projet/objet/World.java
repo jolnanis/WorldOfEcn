@@ -21,6 +21,8 @@ public class World {
      * Créatures présentes dans le monde (accès en liste pour permettre de mapper des actions sur toutes les créatures)
      */
        public LinkedList<Creature> creatures;
+       public LinkedList<Potion> potions;
+       public LinkedList<Nourriture> nourritures;
     
  
     //Constructeurs
@@ -30,6 +32,8 @@ public class World {
      */
     public World() {
             this.creatures = new LinkedList<Creature>();
+            this.nourritures = new LinkedList<Nourriture>();
+            this.potions = new LinkedList<Potion>();
     }
     //Méthodes
     /**
@@ -39,12 +43,15 @@ public class World {
         Point2D position = new Point2D();
         Random generateurAleatoire = new Random();
         
-        int nbCreatures = 200;
+        int nbCreatures = 150;
+        int nbNourritures = 75 ;
+        int nbPotions = 100 ;
         
         int idCreature;
+        int idPotions;
         
         
-        Soin s1 = new Soin();
+        /*Soin s1 = new Soin();
         s1.pos.setX(2);
         s1.pos.setY(2);
         s1.placeDansMap();
@@ -64,7 +71,7 @@ public class World {
         Mana m2 = new Mana();
         m2.pos.setX(4);
         m2.pos.setY(1);
-        m2.placeDansMap();
+        m2.placeDansMap();*/
         
         
         
@@ -90,55 +97,87 @@ public class World {
         /*
          * World.save dans le répertoire /shared/Documents/Cours/OBJET/TP1 or so. 
          */
-        
+        //On place les créatures
         // Copie par référence de la première créature de la liste, puis initialisation de sa position. 
-        Creature creaPrecedente = creatures.getFirst();
+        //Creature creaPrecedente = creatures.getFirst();
         ElementDuJeu.map = new ElementDuJeu[50][50];
         
-        int dx = generateurAleatoire.nextInt(50);
-        position.setX(dx);
-        int dy = generateurAleatoire.nextInt(50);
-        position.setY(dy);
         
-        creaPrecedente.setPos(position);
-        creaPrecedente.placeDansMap();
+        //position.setX(dx);
+
+        //position.setY(dy);
         
-        int k = 0;
+        //creaPrecedente.setPos(position);
+        //creaPrecedente.placeDansMap();
         
-        long maintenant = System.nanoTime();
+        //int k = 0;
+        
+        //long maintenant = System.nanoTime();
         for (Creature c : creatures) {
             // On tire une position parmi les cases à 5 cases autour de la créature précédente.
-            c.setPos(creaPrecedente.getPos());
+            //c.setPos(creaPrecedente.getPos());
             //On vérifie que cette position est bien sur le plateau
-            boolean b = true;
-            
-            while (b) {
-                dx = generateurAleatoire.nextInt(20)-10;
-                
-                dy = generateurAleatoire.nextInt(20)-10;
-                if (((c.getPos().getX()+dx > 0) && (c.getPos().getX()+dx < 50) && (c.getPos().getY()+dy > 0) && (c.getPos().getY()+dy < 50))){
-                    if (ElementDuJeu.map[c.getPos().getX() + dx][c.getPos().getY() + dy] == null) {
-                        b = false;
-                    }                
+            //boolean b = true;
+            int dx = generateurAleatoire.nextInt(50);
+            int dy = generateurAleatoire.nextInt(50);
+            //while (b) {
+            while (ElementDuJeu.map[dx][dy] != null){
+                dx = generateurAleatoire.nextInt(50);
+                dy = generateurAleatoire.nextInt(50);
+               
                 }
-                
-                
-            }
-            position.setX(c.getPos().getX() + dx);
-            position.setY(c.getPos().getY() + dy);
+            position.setX(dx);
+            position.setY(dy);
             
             c.setPos(position);
             c.placeDansMap();
-            k++;
-            
-            
+                
+                
+            }
 
             
-            
-            
+        
+        //On place les nourritures
+        for (int i=0; i<=nbNourritures ; i++){
+            nourritures.add(new Nourriture());
+        }
+        for (Nourriture n : nourritures){
+            int dx2 = generateurAleatoire.nextInt(50);
+            int dy2 = generateurAleatoire.nextInt(50);
+            while (ElementDuJeu.map[dx2][dy2] != null){
+                dx2 = generateurAleatoire.nextInt(50);
+                dy2 = generateurAleatoire.nextInt(50);
+            }
+            n.pos.setX(dx2);
+            n.pos.setY(dy2);
+            n.placeDansMap();
         }
         
-    }    
+        //On place les potions
+        for (int i=0; i<=nbPotions ; i++){
+            idPotions = generateurAleatoire.nextInt(1);
+            switch (idPotions){
+                case 0 : potions.add(new Soin());
+                    break;
+                case 1 : potions.add(new Mana());
+                    break;
+            }
+        }
+        for (Potion p : potions){
+            int dx3 = generateurAleatoire.nextInt(50);
+            int dy3 = generateurAleatoire.nextInt(50);
+            while (ElementDuJeu.map[dx3][dy3] != null){
+                dx3 = generateurAleatoire.nextInt(50);
+                dy3 = generateurAleatoire.nextInt(50);
+            }
+            p.pos.setX(dx3);
+            p.pos.setY(dy3);
+            p.placeDansMap();
+        }
+        
+        
+        
+        }    
 
     /**
      * Effectue un tour de jeu (déplacement et attaques) pour un joueur. 
@@ -150,9 +189,12 @@ public class World {
                 //c.pos.affiche();
                 c.deplace();
             }
-            
+
             player.jDeplacer();
             player.p.afficherEnvirons();
+            System.out.println("Légende :");
+            System.out.println("Y = Joueur actif ; A = Archer ; G = Guerrier ; M = Mage ; L = Loup ; R = Lapin");
+            System.out.println("N = nourriture ; V = potion vie ; W = potion mana");
             System.out.println("Position modifiée du joueur");
             player.p.pos.affiche();
             player.jCombattre();
