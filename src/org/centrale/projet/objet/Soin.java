@@ -19,5 +19,11 @@ public class Soin extends Potion {
         pV=15;
     }
     
+    public int getPV() {
+        return pV;
+    }
     
+    public void setPV(int pV) {
+        this.pV = pV;
+}
 }
