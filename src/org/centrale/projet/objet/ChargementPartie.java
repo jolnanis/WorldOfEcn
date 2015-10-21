@@ -5,43 +5,42 @@
  */
 package org.centrale.projet.objet;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Jean-Marie Normand (jean-marie.normand@ec-nantes.fr)
- */
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.lang.reflect.Constructor;
 import java.util.StringTokenizer;
 
-public class TestBufferedReader {
-  protected String source;
-  
-  public TestBufferedReader(String source) {
-    this.source = source;
-    lecture();
-  }
-
-  public static void main(String args[]) {
-      TestBufferedReader testBufferedReader = new TestBufferedReader("Sauvegarde-WoE.txt");
-  }
-
-  private void lecture() { 
-    try {
+/**
+ *
+ * @author nico
+ */
+public class ChargementPartie {
+    String fichier;
+    BufferedReader lecteur;
+    
+    public void ChargementPartie(String fichier){
+        try{
+        this.fichier = fichier;
+        lecteur = new BufferedReader(new FileReader(fichier));
+    
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    public World ChargerPartie(){
+      try{
+      World sekai = new World();
       String ligne ;
-      BufferedReader fichier = new BufferedReader(new FileReader(source));
-      ligne = fichier.readLine();
+      ligne = lecteur.readLine();
       while (ligne != null) {
           StringTokenizer tokenizer = new StringTokenizer(ligne, " ");
           Class cl = Class.forName(tokenizer.nextToken());
           Constructor ct = cl.getConstructor();
           Object el = ct.newInstance();
           if (el instanceof Creature){
+              sekai.creatures.add(((Creature)el));
             if (el instanceof Personnage){
                 if (el instanceof Archer){
                     ((Archer)el).setNbFleches(Integer.parseInt(tokenizer.nextToken()));
@@ -61,12 +60,12 @@ public class TestBufferedReader {
                 ((Personnage)el).setNom(tokenizer.nextToken());
             }
             
-                ((Personnage)el).setPtVie(Integer.parseInt(tokenizer.nextToken()));
-                ((Personnage)el).setDegAtt(Integer.parseInt(tokenizer.nextToken()));
-                ((Personnage)el).setPtPar(Integer.parseInt(tokenizer.nextToken()));
-                ((Personnage)el).setPourcentageAtt(Integer.parseInt(tokenizer.nextToken()));
-                ((Personnage)el).setPourcentagePar(Integer.parseInt(tokenizer.nextToken()));
-                ((Personnage)el).setPtVie(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPtVie(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setDegAtt(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPtPar(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPourcentageAtt(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPourcentagePar(Integer.parseInt(tokenizer.nextToken()));
+                ((Creature)el).setPtVie(Integer.parseInt(tokenizer.nextToken()));
           }
           else {
               if (el instanceof Mana){
@@ -79,23 +78,24 @@ public class TestBufferedReader {
                  ((Nourriture)el).setBonusmalus(Integer.parseInt(tokenizer.nextToken()));
                  ((Nourriture)el).setName(tokenizer.nextToken());
                  ((Nourriture)el).setDuree(Integer.parseInt(tokenizer.nextToken()));
+                sekai.nourritures.add(((Nourriture)el));
+              }else{
+                sekai.potions.add(((Potion)el));
               }
           }
           
           Point2D pos = new Point2D(Integer.parseInt(tokenizer.nextToken()),Integer.parseInt(tokenizer.nextToken()));
-//            while(tokenizer.hasMoreTokens()) {
-//            // nextToken() retourne la prochaine unite lexicale decoupee par les delimiteurs
-//            String mot = tokenizer.nextToken();
-//            // pour l'exemple, on transforme 'mot' en lettres minuscules
-//            mot = mot.toLowerCase();
-//            // on affiche 'mot' qui est maintenant en minuscules
-//            System.out.println(mot);
-//            } 
+          ((ElementDuJeu)el).setPos(pos);
+          ((ElementDuJeu)el).placeDansMap();
       }
-
-      fichier.close();
+      lecteur.close();
+      return sekai;
     } catch (Exception e) {
       e.printStackTrace();
-    }     
-  }    
+      return null;
+    }
+    
+        
+    }
+    
 }

@@ -22,6 +22,7 @@ public class TestSeance2 {
         World sekai = new World();
         Joueur player1 = new Joueur();
         Joueur player2 = new Joueur();
+        System.out.println("Bienvenue dans ce jeu à 2 joueur :");
         player1.bienvenue();
         player2.bienvenue();
         System.out.println("Position intiale du joueur 1");
@@ -44,6 +45,11 @@ public class TestSeance2 {
             sekai.tourDuJeu(player2);
             System.out.println("Continuer à jouer ? (y/n)");
             veutjouer = sc2.nextLine();
+        }
+        System.out.println("Sauvegarder ? (y/n)");
+        if (sc2.nextLine().equals("y")){
+            SauvegardePartie fichier = new SauvegardePartie("save.txt");
+            fichier.SauvegarderPartie(sekai);
         }
         
         

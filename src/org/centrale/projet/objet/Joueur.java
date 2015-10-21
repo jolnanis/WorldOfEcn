@@ -174,12 +174,10 @@ public class Joueur {
      * Invite de déplacement pour un joueur.
      */
     public void jDeplacer(){
-        System.out.println("Les déplacements se font de la manière suivante :"
-                           + " Haut : 5 "
-                           + " Bas : 2 "
-                           + " Gauche : 1 "
-                           + " Droite : 3 "
-                           + " Et diagonales en conséquence");
+        System.out.println("Entrez vos déplacements de la façon suivante : ");
+        System.out.println("15  5  35");
+        System.out.println("1   Y1   3");
+        System.out.println("12  2  32");
         Scanner sc3 =  new Scanner(System.in);
         int deplacement = sc3.nextInt();
         switch (deplacement){
