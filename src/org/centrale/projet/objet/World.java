@@ -79,7 +79,7 @@ public class World {
                     break;
                     case 3 : creatures.add(new Guerrier(5, 100, 70, 50, 20, 60, 60, 1, new Point2D(0,0), "Arthur", new LinkedList<Nourriture>()));
                     break;
-                    case 4 : creatures.add(new Loup(false, 100, 60, 20, 60 , 30, new Point2D(0,0)));
+                    case 4 : creatures.add(new Loup(100, 60, 20, 60 , 30, new Point2D(0,0)));
                     break;
                     case 5 : creatures.add(new Mage(20, 50, 60, 100, 30, 80, 50, 50, 50, 10, new Point2D(0,0), "Merlin", new LinkedList<Nourriture>()));
                     break;
