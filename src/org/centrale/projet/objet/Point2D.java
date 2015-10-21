@@ -142,5 +142,10 @@ public class Point2D {
         return(Math.abs(p.x-this.x)+Math.abs(p.y-this.y));
     }
     
+    @Override
+    public String toString(){
+        return("["+this.x+","+this.y+"]");
+    }
+    
     
 }

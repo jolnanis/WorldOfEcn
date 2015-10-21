@@ -11,7 +11,6 @@ import java.util.Random;
  * @author nico
  */
 public class Loup extends Monster implements Combattant {
-    private boolean rage;
 
     /**
      * Constructeur de recopie de la classe Loup.
@@ -19,7 +18,6 @@ public class Loup extends Monster implements Combattant {
      */
     public Loup(Loup l) {
         super(l);
-        this.rage = l.rage;
     }
 
     /**
@@ -31,7 +29,6 @@ public class Loup extends Monster implements Combattant {
 
     /**
      * Constructeur simple de la classe Loup.
-     * @param rage
      * @param ptVie
      * @param pourcentageAtt
      * @param pourcentagePar
@@ -39,27 +36,8 @@ public class Loup extends Monster implements Combattant {
      * @param ptPar
      * @param pos
      */
-    public Loup(boolean rage, int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
+    public Loup(int ptVie, int pourcentageAtt, int pourcentagePar, int degAtt, int ptPar, Point2D pos) {
         super(ptVie, pourcentageAtt, pourcentagePar, degAtt, ptPar, pos);
-        this.rage = rage;
-    }
-    
-    //Accesseur
-
-    /**
-     * 
-     * @return
-     */
-    public boolean isRage() {
-        return rage;
-    }
-
-    /**
-     * 
-     * @param rage
-     */
-    public void setRage(boolean rage) {
-        this.rage = rage;
     }
     
     /**
