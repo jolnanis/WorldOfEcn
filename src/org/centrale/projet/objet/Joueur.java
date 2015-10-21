@@ -143,15 +143,29 @@ public class Joueur {
      * @param position
      */
     public void peutSeDeplacer(Point2D position){
-        if (((p.pos.getX() + position.getX() >= 0) && (p.pos.getX() + position.getX() <= 50) && 
-             (p.pos.getY() + position.getY() >= 0) && (p.pos.getY() + position.getY() <= 50)) &&
-             ((ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()] == null) || 
-             (ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()] instanceof Objet))){
-              p.deplace(position);
-              p.placeDansMap();
+        if ((p.pos.getX() + position.getX() >= 0) && (p.pos.getX() + position.getX() <= 50) && 
+             (p.pos.getY() + position.getY() >= 0) && (p.pos.getY() + position.getY() <= 50)){
+            if (ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()] instanceof Potion){
+                p.boire(((Potion)ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()]));
+                p.deplace(position);
+                p.placeDansMap();
+            }
+            else if (ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()] instanceof Nourriture){
+                p.manger(((Nourriture)ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()]));
+                p.deplace(position);
+                p.placeDansMap();
+            }
+            else if (ElementDuJeu.map[this.p.pos.getX()+position.getX()][this.p.pos.getY()+position.getY()] == null){
+                p.deplace(position);
+                p.placeDansMap();
+            }
+            else{
+                System.out.println("Eh non petit garnement. Tu écrases une autre créature. Allez, file donc ailleurs");
+            }
+            
         }
         else{
-           System.out.println("Eh non petit garnement. Tu sors de la map, ou t'écrases un de tes compagnons. Allez, file donc ailleurs");
+           System.out.println("Eh non petit garnement. Tu sors de la map. Allez, file donc ailleurs");
         }
         
     }

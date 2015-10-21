@@ -20,9 +20,6 @@ public class TestSeance2 {
     public static void main (String[] args){
         ElementDuJeu.map = new ElementDuJeu[50][50];
         World sekai = new World();
-        //sekai.creatures = new LinkedList<Creature>();
-        //sekai.creatures.add(new Guerrier(10, 100, 50, 60, 30, 60, 1, new Point2D(0,1),"YOLO"));
-        sekai.creeMondeAlea();
         Joueur player1 = new Joueur();
         Joueur player2 = new Joueur();
         player1.bienvenue();
@@ -31,7 +28,10 @@ public class TestSeance2 {
         player1.p.pos.affiche();
         System.out.println("Position intiale du joueur 2");
         player2.p.pos.affiche();
-        
+        //sekai.creatures = new LinkedList<Creature>();
+        //sekai.creatures.add(new Guerrier(10, 100, 50, 60, 30, 60, 1, new Point2D(0,1),"YOLO"));
+        sekai.creeMondeAlea();
+           
         System.out.println("Commencer à jouer ? (Y/N)");
         Scanner sc2 =  new Scanner(System.in);
         String veutjouer = sc2.nextLine();
